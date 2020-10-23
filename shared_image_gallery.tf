@@ -1,8 +1,5 @@
 module "packer" {
   source              = "./modules/shared_image_gallery/packer"
-  for_each            = local.shared_services.shared_image_gallery.packer
-  global_settings     = local.global_settings
-  settings            = each.value
  }
 
 

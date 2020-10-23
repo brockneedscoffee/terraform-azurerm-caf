@@ -3,7 +3,6 @@ source "azure-arm" "packer-exec" {
   client_id = var.client_id
   client_secret = var.client_secret
   tenant_id = var.tenant_id
-  resource_group_name = var.resource_group_name
   os_type = var.os_type
   image_publisher = var.image_publisher
   image_offer = var.image_offer 
@@ -17,10 +16,11 @@ source "azure-arm" "packer-exec" {
     gallery_name = var.gallery_name
     image_name = var.image_name
     image_version = var.image_version
-    replication_regions = ["southeastasia"]
+    replication_regions = var.replication_regions
   }
   managed_image_name = var.managed_image_name
-  managed_image_resource_group_name = var.resource_group_name
+  managed_image_resource_group_name = var.managed_image_resource_group_name
+
 }
 
 build {
@@ -28,16 +28,14 @@ build {
         "source.azure-arm.packer-exec"
     ]
     provisioner "ansible" {
-      playbook_file = "./${var.playbook_path}"
+      playbook_file = "${var.playbook_path}"
     }
 }
 
 variable "os_type" {
   type    = string
 }
-variable "resource_group_name" {
-  type    = string
-}
+
 variable "image_publisher" {
   type    = string
 }
@@ -58,8 +56,7 @@ variable "vm_size" {
 variable "playbook_path" {
     type = string
 }
-variable "managed_image_resource_group" {}
-variable "managed_image_name" {}
+
 
 variable subscription {}
 variable gallery_name {}
@@ -68,4 +65,8 @@ variable image_version {}
 variable client_id {}
 variable client_secret {}
 variable tenant_id {}
+variable replication_regions {}
+variable managed_image_name {}
+variable managed_image_resource_group_name {}
+variable resource_group_name {}
 
