@@ -1,6 +1,9 @@
-// module "packer" {
-//   source = ./shared_image_gallery/packer
-// }
+module "packer" {
+  source              = "./modules/shared_image_gallery/packer"
+  for_each            = local.shared_services.shared_image_gallery.packer
+  global_settings     = local.global_settings
+  settings            = each.value
+ }
 
 
 // resource "azurecaf_name" "sig_name" {

@@ -1,13 +1,5 @@
-resource "null_resource" "packer-exec1" {
-  count = var.settings.use_marketplace_image ? 1 : 0
+resource "null_resource" "packer-exec" {
   provisioner "local-exec" {
-    command = "packer.io build packer-exec1.pkr.hcl"
+    command = "packer build -var-file=/tf/caf/public/landingzones/caf_shared_services/scenario/110-shared-image-gallery/configuration.pkvars.hcl /tf/caf/modules/shared_image_gallery/packer/image-builder1.pkr.hcl"
+  }
 }
-
-
-resource "null_resource" "packer-exec2" {
-  count = var.settings.use_managed_image ? 1 : 0
-  provisioner "local-exec" {
-    command = "packer.io build packer-exec2.pkr.hcl
-}
-
