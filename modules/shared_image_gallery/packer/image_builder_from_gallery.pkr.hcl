@@ -12,7 +12,7 @@ source "azure-arm" "packer-exec" {
     resource_group = var.source_sig_resource_group
     gallery_name = var.source_gallery_name
     image_name = var.source_image_name
-    image_version = var.source.image_version
+    image_version = var.source_image_version
     }
 
   shared_image_gallery_destination {
@@ -63,4 +63,4 @@ variable source_subscription {}
 variable source_sig_resource_group {}
 variable source_gallery_name {}
 variable source_image_name {}
-variable source.image_version {}
+variable source_image_version {}
