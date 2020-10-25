@@ -108,7 +108,7 @@ locals {
     automations          = try(var.shared_services.automations, {})
     monitoring           = try(var.shared_services.monitoring, {})
     shared_image_gallery = try(var.shared_services.shared_image_gallery, {})
-    packer = try(var.shared_services.packer, {})
+    packer               = try(var.shared_services.packer, {})
   }
 
   enable = {
