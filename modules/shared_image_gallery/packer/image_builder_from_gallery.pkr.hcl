@@ -4,11 +4,16 @@ source "azure-arm" "packer-exec" {
   client_secret = var.client_secret
   tenant_id = var.tenant_id
   os_type = var.os_type
-  image_publisher = var.image_publisher
-  image_offer = var.image_offer 
-  image_sku = var.image_sku
   location = var.location
   vm_size = var.vm_size
+
+  shared_image_gallery {
+    subscription = var.source_subscription
+    resource_group = var.source_sig_resource_group
+    gallery_name = var.source_gallery_name
+    image_name = var.source_image_name
+    image_version = var.source.image_version
+    }
 
   shared_image_gallery_destination {
     subscription = var.subscription
@@ -54,4 +59,8 @@ variable replication_regions {}
 variable managed_image_name {}
 variable managed_image_resource_group_name {}
 variable resource_group_name {}
-
+variable source_subscription {}
+variable source_sig_resource_group {}
+variable source_gallery_name {}
+variable source_image_name {}
+variable source.image_version {}
