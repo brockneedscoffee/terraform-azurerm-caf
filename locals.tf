@@ -99,6 +99,10 @@ locals {
     app_services                 = try(var.webapp.app_services, {})
   }
 
+  logicapp = {
+    logic_app_workspace = try(var.logicapp.logic_app_workspace, {})
+  }
+
   shared_services = {
     recovery_vaults = try(var.shared_services.recovery_vaults, {})
     automations     = try(var.shared_services.automations, {})
