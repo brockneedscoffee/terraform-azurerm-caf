@@ -100,7 +100,10 @@ locals {
   }
 
   logicapp = {
+    logic_app_action_http = try(var.logicapp.logic_app_action_http, {})
+    logic_app_trigger_http_request = try(var.logicapp.logic_app_trigger_http_request, {})
     logic_app_workspace = try(var.logicapp.logic_app_workspace, {})
+    integration_service_environment = try(var.logicapp.integration_service_environment, {})
   }
 
   shared_services = {
