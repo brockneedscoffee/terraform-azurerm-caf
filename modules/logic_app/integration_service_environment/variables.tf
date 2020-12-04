@@ -1,29 +1,29 @@
-variable tags {
-  description = "(Required) map of tags for the deployment"
-}
-
 variable name {
   description = "(Required) The name of the Integration Service Environment"
 }
 
 variable location {
-  description = "(Required) Resource Location"
+  description = "(Required) The Azure Region where the Integration Service Environment should exist"
 }
 
 variable resource_group_name {
-  description = "(Required) Resource group of the Logic App"
+  description = "(Required) The name of the Resource Group where the Integration Service Environment should exist"
 }
 
 variable sku_name {
-  description = "The sku name and capacity of the Integration Service Environment"
+  description = "(Required) The sku name and capacity of the Integration Service Environment"
 }
 
 variable access_endpoint_type {
-  description = "The type of access endpoint to use for the Integration Service Environment"
+  description = "(Required) The type of access endpoint to use for the Integration Service Environment"
 }
 
 variable virtual_network_subnet_ids {
-  description = "A list of virtual network subnet ids to be used by Integration Service Environment"
+  description = "(Required) A list of virtual network subnet ids to be used by Integration Service Environment"
+}
+
+variable tags {
+  description = "(Optional) A mapping of tags which should be assigned to the Integration Service Environment"
 }
 
 variable global_settings {}

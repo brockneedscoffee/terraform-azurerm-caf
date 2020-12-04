@@ -100,10 +100,14 @@ locals {
   }
 
   logicapp = {
-    logic_app_action_http = try(var.logicapp.logic_app_action_http, {})
-    logic_app_trigger_http_request = try(var.logicapp.logic_app_trigger_http_request, {})
-    logic_app_workspace = try(var.logicapp.logic_app_workspace, {})
     integration_service_environment = try(var.logicapp.integration_service_environment, {})
+    logic_app_action_custom         = try(var.logicapp.logic_app_action_custom, {})
+    logic_app_action_http           = try(var.logicapp.logic_app_action_http, {})
+    logic_app_integration_account   = try(var.logicapp.logic_app_integration_account, {})
+    logic_app_trigger_custom        = try(var.logicapp.logic_app_trigger_custom, {})
+    logic_app_trigger_http_request  = try(var.logicapp.logic_app_trigger_http_request, {})
+    logic_app_trigger_recurrence    = try(var.logicapp.logic_app_trigger_recurrence, {})
+    logic_app_workspace             = try(var.logicapp.logic_app_workspace, {})
   }
 
   shared_services = {

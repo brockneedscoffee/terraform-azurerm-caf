@@ -9,10 +9,11 @@
 #   use_slug      = var.global_settings.use_slug
 # }
 
-resource "azurerm_logic_app_trigger_http_request" "trigger" {
-  name          = var.name
-  logic_app_id  = var.logic_app_id
-  schema        = var.schema
-  method        = var.method
-  relative_path = var.relative_path
+resource "azurerm_logic_app_trigger_recurrence" "freq" {
+  name         = var.name
+  logic_app_id = var.logic_app_id
+  frequency    = var.frequency
+  interval     = var.interval
+  start_time   = var.start_time
+  # time_zone            = var.time_zone  
 }
